@@ -27,7 +27,9 @@
         text-align: center;
         color: white;
     }
-    
+    h1 {
+ 
+    }
     main {
         height: 450px;
         width: 550px;
@@ -68,28 +70,13 @@
         <h1>Horário do dia</h1>
     </header>
     <main>
-     <p id="mensagem">Aqui mostra o horário</p>
+     <p>Aqui mostra o horário</p>
      Aqui vai a foto
      
     </main>
     <footer>
-        <p>Site feito por <strong>João Pedro Leite</strong> para o curso de <strong>JavaScript</strong></p>
+        <p>Site feito por <strong>João Pedro Leite</strong> para o curso de JavaScript</p>
     </footer>
     
 </body>
-<script>
-    var agora = new Date()
-    var hora = agora.getDay()
-    var horario = window.document.getElementById('mensagem')
-
-    
-
-    if(hora < 6) {
-        
-        horario.innetHTML(`Bom dia, agora são ${hora} horas`)
-
-    } else if ( hora > 6) {
-        hoario.innerHTML(`Boa tarde, agora são ${hora} horas`)
-    }
-</script>
 </html>
