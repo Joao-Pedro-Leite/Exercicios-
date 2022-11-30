@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Nacionalidade</title>
+</head>
+<body>
+    <h1>ARE YOU GRINGO ?????</h1>
+    
+    <input type="text" name="txtn1" id="txtn1">
+
+    <input type="button" value="Verificar" onclick="verificar()">
+
+    <div id="res"></div>
+</body>
+<script>
+    function verificar() {
+        var txt = window.document.getElementById('txtn1')
+
+        var pais = String(txt.value)
+
+        var res = window.document.getElementById("res")
+
+        if (pais == "Brasil") {
+            res.innerHTML = `YOU ARE NOT GRINGO`
+        } else if (pais !== '') {
+            res.innerHTML = `YOU GRINGO BRO`
+        }
+    }
+</script>
+
+</html>
