@@ -7,6 +7,15 @@
     <title>Exercício da data</title>
 </head>
 <style>
+
+    /* 
+    Cores :
+    
+    Manhã - #85C8F2
+    Tarde - #98A67B
+    Noite - #012326
+     */
+
     * {
         margin: 0px;
         padding: 0px;   
@@ -29,8 +38,8 @@
     }
     
     main {
-        height: 450px;
-        width: 550px;
+        height: 350px;
+        width: 350px;
         background-color: white;
 
         position: absolute;
@@ -45,8 +54,12 @@
     }
 
     main > p {
-        margin-top: 10px;
+        margin-top: 20px;
         margin-bottom: 10px;
+    }
+
+    main > img {
+        margin: 10px;
     }
 
     footer {
@@ -63,13 +76,13 @@
     
     }
 </style>
-<body>
+<body onload="relogio()">
     <header>
         <h1>Horário do dia</h1>
     </header>
     <main>
      <p id="mensagem">Aqui mostra o horário</p>
-     Aqui vai a foto
+     <img id="img" src="imagens/foto-manha-250.png" alt="foto manhã">
      
     </main>
     <footer>
@@ -78,18 +91,40 @@
     
 </body>
 <script>
+   
+
+    
+    function relogio() { 
+
     var agora = new Date()
-    var hora = agora.getDay()
-    var horario = window.document.getElementById('mensagem')
+    var hora = agora.getHours()
 
     
 
-    if(hora < 6) {
-        
-        horario.innetHTML(`Bom dia, agora são ${hora} horas`)
+    
+    var imagem = window.document.getElementById('img')
+    var horario = window.document.getElementById('mensagem')
 
-    } else if ( hora > 6) {
-        hoario.innerHTML(`Boa tarde, agora são ${hora} horas`)
+    if(hora < 6) {
+        // Bom dia
+        horario.innerHTML = `Bom dia, agora são ${hora} horas`
+        imagem.src = 'imagens/foto-manha-250.png'
+        document.body.style.background = '#85C8F2'
+
+    } else if ( hora > 6 && hora < 18) {
+        // Boa tarde
+        horario.innerHTML = `Boa tarde, agora são ${hora} horas`
+        imagem.src = 'imagens/foto-tarde-250.png'
+        
+        document.body.style.background = '#98A67B'
+
+    } else {
+        // Boa noite
+        horario.innerHTML = `Boa noite, agora são ${hora} horas`
+        imagem.src = 'imagens/foto-noite-250.png'
+        
+        document.body.style.background = '#012326'
     }
+     }
 </script>
 </html>
