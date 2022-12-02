@@ -51,6 +51,27 @@
         margin-bottom: 10px;
     }
 
+    div#form{
+        text-align: left;
+        padding: 20px;
+    }
+
+    div > input {
+        margin: 10px 0px;
+    }
+
+
+
+    div#res{
+        /* display: none; */
+    }
+
+
+
+    img {
+        border-radius: 50%;
+    }
+
     footer {
         
         position: absolute;
@@ -70,13 +91,66 @@
         <h1>Horário do dia</h1>
     </header>
     <main>
-     <p>Aqui mostra o horário</p>
-     Aqui vai a foto
+     <div id="form">
+
+        <form action="verificar">
+            <label for="ano">Ano do nascimento:</label>
+            <input type="number" name="ano" id="ano" min="0">
+            <br>
+            <label for="genero">
+                Gênero:
+            </label>
+            <input type="radio" name="genero" id="masculino" class="genero" > Masculino
+            <input type="radio" name="genero" id="feminino" class="genero"> Feminino
+            <br>
+            <input type="button" value="Verificar" onclick="verificar()">
+        </form>
+     </div>
+     <div id="res">
+        <!-- <img src="imagens/homem-adulto-250.jpg" alt="foto representativa">
+        <p>Aqui vai o texto de identificação</p> -->
+     </div>
      
     </main>
     <footer>
         <p>Site feito por <strong>João Pedro Leite</strong> para o curso de JavaScript</p>
     </footer>
+    <script>
+        var res = document.getElementById('res')
+        var ano = document.getElementById('ano')
+        genero = document.getElementsByClassName('genero') 
+
+        var valor1 = Number(ano.value)
+        var valor2 = String(genero.value)
+
+        var data = new Date()
+        var ano = data.getFullYear()
+
+
+        function verificar() {
+
+        
+        var res = document.getElementById('res')
+        var fano = document.getElementById('ano')
+        genero = document.getElementsByClassName('genero')
+
+        var valor1 = Number(fano.value)
+        var valor2 = String(genero.value)
+
+        
+        var data = new Date()
+        var ano = data.getFullYear()
+
+
+            if (valor1 == 0 || valor1 > ano) {
+                window.alert('[ERRO]')
+            } else {
+                var idade = ano - valor1 
+                res.innerHTML = `Idade calculada de ${idade}`
+            }
+        
+        }
+    </script>
     
 </body>
 </html>
