@@ -116,16 +116,7 @@
         <p>Site feito por <strong>João Pedro Leite</strong> para o curso de JavaScript</p>
     </footer>
     <script>
-        var res = document.getElementById('res')
-        var ano = document.getElementById('ano')
-        genero = document.getElementsByClassName('genero') 
-
-        var valor1 = Number(ano.value)
-        var valor2 = String(genero.value)
-
-        var data = new Date()
-        var ano = data.getFullYear()
-
+    
 
         function verificar() {
 
@@ -146,7 +137,35 @@
                 window.alert('[ERRO]')
             } else {
                 var idade = ano - valor1 
-                res.innerHTML = `Idade calculada de ${idade}`
+               
+                var sexo = ''
+                
+                if (genero[0].checked) {
+                    sexo = "Masculino"
+                    if (idade >= 0 && idade <18) {
+                        // criança
+                    } else if (idade < 21) {
+                        // Jovem
+                    } else if (idade < 50) {
+                        // Adulto
+                    } else {
+                        idoso
+                    }
+                    
+                } else if (genero[1].checked) { 
+                    sexo = 'Mulher'
+                    if (idade >= 0 && idade <18) {
+                        // criança
+                    } else if (idade < 21) {
+                        // Jovem
+                    } else if (idade < 50) {
+                        // Adulto
+                    } else {
+                        idoso
+                    }
+
+                }
+                res.innerHTML = `Detectamos genero ${sexo} com ${idade} anos`
             }
         
         }
